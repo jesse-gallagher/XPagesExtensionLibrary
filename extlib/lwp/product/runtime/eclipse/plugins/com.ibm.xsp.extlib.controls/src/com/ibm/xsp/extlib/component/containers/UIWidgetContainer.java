@@ -1,5 +1,5 @@
 /*
- * © Copyright IBM Corp. 2010, 2011
+ * ï¿½ Copyright IBM Corp. 2010, 2011
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -63,6 +63,8 @@ public class UIWidgetContainer extends UIComponentBase implements ThemeControl, 
     private String onScrollDown;
     private String style;
     private String styleClass;
+    private String titleBarStyle;
+    private String titleBarStyleClass;
     // Accessibility
     private String accesskey;
     private String tabindex;
@@ -345,6 +347,38 @@ public class UIWidgetContainer extends UIComponentBase implements ThemeControl, 
 
 	public void setStyleClass(String styleClass) {
 		this.styleClass = styleClass;
+	}
+	
+	public String getTitleBarStyle() {
+		if (null != this.titleBarStyle) {
+			return this.titleBarStyle;
+		}
+		ValueBinding vb = getValueBinding("titleBarStyleClass"); //$NON-NLS-1$
+		if(vb != null) {
+			return (String) vb.getValue(getFacesContext());
+		} else {
+			return null;
+		}
+	}
+	
+	public void setTitleBarStyle(String titleBarStyle) {
+		this.titleBarStyle = titleBarStyle;
+	}
+	
+	public String getTitleBarStyleClass() {
+		if (null != this.titleBarStyleClass) {
+			return this.titleBarStyleClass;
+		}
+		ValueBinding vb = getValueBinding("titleBarStyleClass"); //$NON-NLS-1$
+		if(vb != null) {
+			return (String) vb.getValue(getFacesContext());
+		} else {
+			return null;
+		}
+	}
+	
+	public void setTitleBarStyleClass(String titleBarStyleClass) {
+		this.titleBarStyleClass = titleBarStyleClass;
 	}
 
     public String getAccesskey() {

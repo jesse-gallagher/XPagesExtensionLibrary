@@ -209,6 +209,32 @@
       </property-extension>
     </property>
     <property>
+        <description>%property.titleBarStyle.descr%</description>
+        <display-name>%property.titleBarStyle.name%</display-name>
+        <property-name>titleBarStyle</property-name>
+        <property-class>java.lang.String</property-class>
+        <property-extension>
+        	<since>9.0.1.v00_14</since>
+            <designer-extension>
+                <category>styling</category>
+                <editor>com.ibm.workplace.designer.property.editors.StyleClassEditor</editor>
+            </designer-extension>
+        </property-extension>
+    </property>
+    <property>
+        <description>%property.titleBarStyleClass.descr%</description>
+        <display-name>%property.titleBarStyle.name%</display-name>
+        <property-name>titleBarStyleClass</property-name>
+        <property-class>java.lang.String</property-class>
+        <property-extension>
+        	<since>9.0.1.v00_14</since>
+            <designer-extension>
+                <category>styling</category>
+                <editor>com.ibm.workplace.designer.property.editors.StyleClassEditor</editor>
+            </designer-extension>
+        </property-extension>
+    </property>
+    <property>
       <description>%property.onScrollUp.descr%</description>
       <display-name>%property.onScrollUp.name%</display-name>
       <property-name>onScrollUp</property-name>

@@ -1,5 +1,5 @@
 /*
- * © Copyright IBM Corp. 2010, 2011
+ * ï¿½ Copyright IBM Corp. 2010, 2011
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -243,14 +243,18 @@ public class WidgetContainerRenderer extends FacesRendererEx {
         String id = c.getClientId(context);
         w.writeAttribute("id",id+_TITLE,null); // $NON-NLS-1$
 
+        String widgetCls = c.getTitleBarStyleClass();
         String cls = (String)getProperty(PROP_CSSTITLEBAR);
-        if(StringUtil.isNotEmpty(cls)) {
-            w.writeAttribute("class",cls,null); // $NON-NLS-1$
+        String concatStyleClass = ExtLibUtil.concatStyleClasses(widgetCls, cls);
+        if(StringUtil.isNotEmpty(concatStyleClass)) {
+            w.writeAttribute("class",concatStyleClass,null); // $NON-NLS-1$
         }
+        String widgetStyle = c.getTitleBarStyle();
         String style = (String)getProperty(PROP_STYLETITLEBAR);
-        if(StringUtil.isNotEmpty(style)) {
-            w.writeAttribute("style",style,null); // $NON-NLS-1$
-        }       
+        String concatStyle = ExtLibUtil.concatStyles(widgetStyle, style);
+        if(StringUtil.isNotEmpty(concatStyle)) {
+            w.writeAttribute("style",concatStyle,null); // $NON-NLS-1$
+        }
 
         // Write the collapsible arrow
         writeCollapsible(context, w, c);

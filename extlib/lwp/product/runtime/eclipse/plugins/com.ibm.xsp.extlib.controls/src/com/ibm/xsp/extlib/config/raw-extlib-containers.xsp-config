@@ -228,6 +228,35 @@
                 </designer-extension>
             </property-extension>
         </property>
+        <property>
+            <description>Specifies CSS style(s) to be applied to the title bar when this control is rendered.</description>
+            <display-name>Title Bar CSS Styles</display-name>
+            <property-name>titleBarStyle</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+            	<since>9.0.1.v00_15</since>
+                <designer-extension>
+                    <category>styling</category>
+                    <editor>com.ibm.workplace.designer.property.editors.StyleClassEditor</editor>
+                </designer-extension>
+            </property-extension>
+        </property>
+        <property>
+            <description>
+            	Specifies the space-separated list of CSS style class(es) to be applied to the title bar when this control is rendered.
+            	This value must be passed through as the "class" attribute on generated markup.
+            </description>
+            <display-name>Title Bar CSS Style Classes</display-name>
+            <property-name>titleBarStyleClass</property-name>
+            <property-class>java.lang.String</property-class>
+            <property-extension>
+            	<since>9.0.1.v00_15</since>
+                <designer-extension>
+                    <category>styling</category>
+                    <editor>com.ibm.workplace.designer.property.editors.StyleClassEditor</editor>
+                </designer-extension>
+            </property-extension>
+        </property>
 
 		<property>
 			<description>Event triggered when the user clicks the scrolls upwards</description>

@@ -1,5 +1,5 @@
 /*
- * © Copyright IBM Corp. 2010
+ * ï¿½ Copyright IBM Corp. 2010
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); 
  * you may not use this file except in compliance with the License. 
@@ -154,8 +154,19 @@ public class OneUIv302WidgetContainerRenderer extends OneUIWidgetContainerRender
     protected void writeTitleBar(FacesContext context, ResponseWriter w, UIWidgetContainer c) throws IOException {
         String type = c.getType();
         w.startElement("div", c); // $NON-NLS-1$
+        
+        String titleBarStyleClass = c.getTitleBarStyleClass();
         String secClass = (String) getProperty(PROP_SECTION_HEADER_CSS);
-        w.writeAttribute("class", secClass, null); // $NON-NLS-1$
+        String concatClass = ExtLibUtil.concatStyleClasses(titleBarStyleClass, secClass);
+        if(StringUtil.isNotEmpty(concatClass)) {
+        	w.writeAttribute("class", concatClass, null); // $NON-NLS-1$
+        }
+        String titleBarStyle = c.getTitleBarStyle();
+        if(StringUtil.isNotEmpty(titleBarStyle)) {
+        	w.writeAttribute("style", titleBarStyle, null); //$NON-NLS-1$
+        }
+        
+        
         w.startElement("div", c); // $NON-NLS-1$
         String innerCss = (String) getProperty(PROP_SECTION_INNER_CSS);
         w.writeAttribute("class", innerCss, null); // $NON-NLS-1$
@@ -171,10 +182,10 @@ public class OneUIv302WidgetContainerRenderer extends OneUIWidgetContainerRender
         }else{
             cls = (String)getProperty(PROP_CSSTITLEBAR);
         }
-        
         if(StringUtil.isNotEmpty(cls)) {
             w.writeAttribute("class",cls,null); // $NON-NLS-1$
         }
+        
         String style = (String)getProperty(PROP_STYLETITLEBAR);
         if(StringUtil.isNotEmpty(style)) {
             w.writeAttribute("style",style,null); // $NON-NLS-1$
